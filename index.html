@@ -1,0 +1,2481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FESTIVE BAZAAR | Budget me blast | PCET's S.B. Patil Institute of Management, Pune</title>
+  <meta name="description" content="A modern, Gen Z-friendly festive shopping carnival presented by PCET's S.B. Patil Institute of Management, Pune. Cute finds, festive fits, delicious bites & main-character vibes.">
+
+  <!-- Google Fonts: Playfair Display, Poppins & Caveat (for hand-drawn scrapbook vibes) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       DESIGN SYSTEM & COLOR PALETTE (From Official Poster)
+       ========================================================================== */
+    :root {
+      --bg-cream: #F5E8D7;
+      --bg-warm-white: #FFF9F1;
+      --bg-soft-blush: #F6D8D8;
+      --accent-dusty-rose: #B4777A;
+      --accent-sage: #A8B5A0;
+      --accent-forest: #34483A;
+      --accent-butter: #F2D58A;
+      --accent-butter-light: #FBF0CC;
+      --text-dark: #223227;
+      --text-muted: #5A695E;
+      --border-delicate: rgba(180, 119, 122, 0.28);
+      --border-sage: rgba(168, 181, 160, 0.45);
+      --shadow-soft: 0 10px 30px rgba(52, 72, 58, 0.08);
+      --shadow-hover: 0 18px 40px rgba(52, 72, 58, 0.16);
+      --radius-sm: 10px;
+      --radius-md: 18px;
+      --radius-lg: 26px;
+      --radius-full: 9999px;
+      --font-heading: 'Playfair Display', Georgia, serif;
+      --font-body: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-hand: 'Caveat', cursive, sans-serif;
+      --transition-smooth: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background-color: var(--bg-cream);
+      color: var(--text-dark);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      overflow-x: hidden;
+      position: relative;
+      background-image: 
+        radial-gradient(var(--border-delicate) 0.75px, transparent 0.75px),
+        radial-gradient(rgba(168, 181, 160, 0.2) 0.75px, var(--bg-cream) 0.75px);
+      background-size: 32px 32px;
+      background-position: 0 0, 16px 16px;
+    }
+
+    ::selection {
+      background-color: var(--accent-butter);
+      color: var(--accent-forest);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font-family: var(--font-body);
+      border: none;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Scrapbook Tape & Badges */
+    .washi-tape {
+      position: absolute;
+      width: 90px;
+      height: 26px;
+      background: rgba(180, 119, 122, 0.45);
+      backdrop-filter: blur(2px);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+      transform: rotate(-6deg);
+      z-index: 5;
+      pointer-events: none;
+      border-left: 2px dashed rgba(255,255,255,0.6);
+      border-right: 2px dashed rgba(255,255,255,0.6);
+    }
+
+    .washi-tape.yellow {
+      background: rgba(242, 213, 138, 0.7);
+      transform: rotate(4deg);
+    }
+
+    .washi-tape.sage {
+      background: rgba(168, 181, 160, 0.6);
+      transform: rotate(-3deg);
+    }
+
+    .sticker-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      border: 1px dashed rgba(52, 72, 58, 0.25);
+    }
+
+    .sticker-badge.pink { background: var(--bg-soft-blush); color: var(--accent-forest); }
+    .sticker-badge.yellow { background: var(--accent-butter); color: var(--accent-forest); }
+    .sticker-badge.sage { background: var(--accent-sage); color: var(--accent-forest); }
+
+    /* ==========================================================================
+       NAVIGATION BAR
+       ========================================================================== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background-color: rgba(245, 232, 215, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: var(--transition-smooth);
+      border-bottom: 1px solid transparent;
+    }
+
+    .navbar.scrolled {
+      background-color: rgba(255, 249, 241, 0.94);
+      border-bottom: 1px solid var(--border-delicate);
+      box-shadow: 0 4px 20px rgba(52, 72, 58, 0.06);
+    }
+
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 84px;
+      transition: height 0.3s ease;
+    }
+
+    .navbar.scrolled .nav-wrapper {
+      height: 70px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      text-decoration: none;
+    }
+
+    .logo-badge {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--bg-warm-white);
+      border: 2px solid var(--accent-sage);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(52,72,58,0.1);
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .nav-logo:hover .logo-badge {
+      transform: rotate(8deg) scale(1.05);
+    }
+
+    .logo-badge svg {
+      width: 38px;
+      height: 38px;
+    }
+
+    .logo-text-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-title {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--accent-forest);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .logo-sub {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent-dusty-rose);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-dark);
+      position: relative;
+      padding: 0.3rem 0;
+      transition: color 0.25s ease;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background-color: var(--accent-dusty-rose);
+      border-radius: 2px;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--accent-forest);
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .wishlist-pill {
+      background: var(--bg-soft-blush);
+      color: var(--accent-forest);
+      border-radius: var(--radius-full);
+      padding: 0.45rem 0.9rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      border: 1px solid rgba(180, 119, 122, 0.3);
+    }
+
+    .wishlist-pill:hover {
+      background: #edd0d0;
+      transform: translateY(-2px);
+    }
+
+    .btn-nav-cta {
+      background: var(--accent-forest);
+      color: var(--bg-warm-white);
+      padding: 0.65rem 1.4rem;
+      border-radius: var(--radius-full);
+      font-weight: 600;
+      font-size: 0.88rem;
+      letter-spacing: 0.04em;
+      transition: var(--transition-smooth);
+      box-shadow: 0 4px 14px rgba(52, 72, 58, 0.2);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .btn-nav-cta:hover {
+      background: #25352a;
+      transform: translateY(-2px);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: transparent;
+      padding: 8px;
+    }
+
+    .mobile-menu-btn span {
+      width: 24px;
+      height: 2.5px;
+      background: var(--accent-forest);
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    .mobile-menu-btn.open span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .mobile-menu-btn.open span:nth-child(2) {
+      opacity: 0;
+    }
+    .mobile-menu-btn.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    .mobile-drawer {
+      display: none;
+      position: fixed;
+      top: 84px;
+      left: 0;
+      width: 100%;
+      background: var(--bg-warm-white);
+      padding: 1.5rem 2rem;
+      border-bottom: 2px solid var(--border-delicate);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      flex-direction: column;
+      gap: 1.2rem;
+      z-index: 999;
+    }
+
+    .mobile-drawer.open {
+      display: flex;
+    }
+
+    .mobile-drawer .nav-link {
+      font-size: 1.05rem;
+      padding: 0.5rem 0;
+    }
+
+    /* ==========================================================================
+       HERO SECTION
+       ========================================================================== */
+    .hero-section {
+      position: relative;
+      padding: 3rem 0 5rem;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 3.5rem;
+      position: relative;
+    }
+
+    .floating-sticker {
+      position: absolute;
+      z-index: 10;
+      animation: gentleFloat 4s ease-in-out infinite alternate;
+      filter: drop-shadow(0 6px 12px rgba(52, 72, 58, 0.12));
+    }
+
+    @keyframes gentleFloat {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(-10px) rotate(4deg); }
+    }
+
+    .sticker-good-vibes {
+      top: -20px;
+      right: -10px;
+      background: var(--bg-soft-blush);
+      border: 2px dashed var(--accent-dusty-rose);
+      color: var(--accent-forest);
+      padding: 0.5rem 1.2rem;
+      border-radius: var(--radius-full);
+      font-family: var(--font-hand);
+      font-size: 1.35rem;
+      font-weight: 700;
+      transform: rotate(-4deg);
+    }
+
+    .sticker-budget {
+      background: var(--accent-butter);
+      color: var(--accent-forest);
+      padding: 0.5rem 1.4rem;
+      border-radius: var(--radius-full);
+      font-family: var(--font-hand);
+      font-size: 1.45rem;
+      font-weight: 700;
+      box-shadow: 0 6px 14px rgba(242, 213, 138, 0.5);
+      border: 2px solid #ecd07a;
+      display: inline-block;
+      margin: 0.5rem 0;
+      transform: rotate(-2deg);
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--bg-warm-white);
+      color: var(--accent-dusty-rose);
+      border: 1px solid var(--border-delicate);
+      padding: 0.4rem 1rem;
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-institution-banner {
+      display: inline-block;
+      background: rgba(168, 181, 160, 0.25);
+      border-left: 3px solid var(--accent-sage);
+      padding: 0.35rem 0.85rem;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--accent-forest);
+      margin-bottom: 1rem;
+    }
+
+    .hero-title-main {
+      font-family: var(--font-heading);
+      font-size: 3.8rem;
+      font-weight: 800;
+      line-height: 1.08;
+      color: var(--accent-forest);
+      margin-bottom: 0.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-title-sub {
+      font-family: var(--font-heading);
+      font-size: 2.8rem;
+      font-style: italic;
+      font-weight: 700;
+      color: var(--accent-dusty-rose);
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-description {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+      max-width: 540px;
+    }
+
+    .hero-meta-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      margin-bottom: 2rem;
+    }
+
+    .meta-tag {
+      background: var(--bg-warm-white);
+      border: 1px solid var(--border-sage);
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-md);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--accent-forest);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .meta-tag strong {
+      color: var(--accent-dusty-rose);
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .btn-primary-hero {
+      background: var(--accent-forest);
+      color: var(--bg-warm-white);
+      padding: 0.95rem 2rem;
+      border-radius: var(--radius-full);
+      font-size: 0.98rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      transition: var(--transition-smooth);
+      box-shadow: 0 8px 22px rgba(52, 72, 58, 0.25);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .btn-primary-hero:hover {
+      background: #25352a;
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 12px 28px rgba(52, 72, 58, 0.35);
+    }
+
+    .btn-secondary-hero {
+      background: var(--bg-warm-white);
+      color: var(--accent-forest);
+      border: 1.5px solid var(--accent-forest);
+      padding: 0.95rem 1.8rem;
+      border-radius: var(--radius-full);
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: var(--transition-smooth);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-secondary-hero:hover {
+      background: var(--bg-soft-blush);
+      border-color: var(--accent-dusty-rose);
+      transform: translateY(-2px);
+    }
+
+    /* Scrapbook Collage - Poster Frame */
+    .hero-visual-collage {
+      position: relative;
+      min-height: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .scrapbook-card {
+      position: relative;
+      background: var(--bg-warm-white);
+      padding: 12px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-hover);
+      transition: var(--transition-smooth);
+      cursor: pointer;
+    }
+
+    .scrapbook-card:hover {
+      transform: scale(1.03) rotate(0deg) !important;
+      z-index: 30 !important;
+    }
+
+    .card-photo-wrapper {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 12px;
+      position: relative;
+    }
+
+    .card-center-poster {
+      width: 320px;
+      height: 420px;
+      z-index: 15;
+      transform: rotate(2deg);
+      border: 4px solid #fff;
+      box-shadow: 0 20px 50px rgba(52, 72, 58, 0.2), 0 0 0 1px rgba(0,0,0,0.04);
+    }
+
+    .caption-tag {
+      font-family: var(--font-hand);
+      font-size: 1.15rem;
+      font-weight: 700;
+      text-align: center;
+      margin-top: 6px;
+      color: var(--accent-forest);
+    }
+
+    /* ==========================================================================
+       CATEGORY CAROUSEL (NETFLIX BROWSING EXPERIENCE)
+       ========================================================================== */
+    .section-products {
+      padding: 5rem 0;
+      position: relative;
+    }
+
+    .section-header {
+      margin-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .section-tag {
+      font-family: var(--font-hand);
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--accent-dusty-rose);
+      transform: rotate(-1deg);
+      display: inline-block;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: var(--accent-forest);
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+
+    .section-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 600px;
+    }
+
+    .filter-chips-container {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin: 1.5rem 0 2rem;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+      scrollbar-width: none;
+    }
+
+    .filter-chips-container::-webkit-scrollbar { display: none; }
+
+    .filter-chip {
+      background: var(--bg-warm-white);
+      border: 1px solid var(--border-sage);
+      color: var(--text-dark);
+      padding: 0.5rem 1.25rem;
+      border-radius: var(--radius-full);
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: var(--transition-smooth);
+    }
+
+    .filter-chip:hover {
+      background: var(--bg-soft-blush);
+      border-color: var(--accent-dusty-rose);
+    }
+
+    .filter-chip.active {
+      background: var(--accent-forest);
+      color: var(--bg-warm-white);
+      border-color: var(--accent-forest);
+    }
+
+    .carousel-outer {
+      position: relative;
+      margin: 0;
+      padding: 1rem 3.5rem 2rem;
+    }
+
+    .carousel-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--bg-warm-white);
+      border: 1.5px solid var(--border-delicate);
+      color: var(--accent-forest);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      cursor: pointer;
+      z-index: 20;
+      transition: var(--transition-smooth);
+    }
+
+    .carousel-nav-btn:hover {
+      background: var(--accent-forest);
+      color: var(--bg-warm-white);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .carousel-prev { left: -8px; }
+    .carousel-next { right: -8px; }
+
+    .carousel-track {
+      display: flex;
+      gap: 1.75rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      padding: 1rem 0.5rem 2rem;
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent-sage) transparent;
+    }
+
+    .carousel-track::-webkit-scrollbar { height: 6px; }
+    .carousel-track::-webkit-scrollbar-thumb {
+      background: var(--accent-dusty-rose);
+      border-radius: 10px;
+    }
+
+    .category-card {
+      flex: 0 0 340px;
+      scroll-snap-align: start;
+      background: var(--bg-warm-white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      position: relative;
+      border: 1.5px solid var(--border-delicate);
+      box-shadow: var(--shadow-soft);
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .category-card:hover {
+      transform: translateY(-8px) scale(1.025);
+      border-color: var(--accent-sage);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .card-media {
+      position: relative;
+      height: 260px;
+      overflow: hidden;
+      background-color: var(--bg-soft-blush);
+    }
+
+    .card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .category-card:hover .card-media img {
+      transform: scale(1.05);
+    }
+
+    .card-badge-num {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(255, 249, 241, 0.92);
+      backdrop-filter: blur(6px);
+      padding: 0.3rem 0.75rem;
+      border-radius: var(--radius-full);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--accent-forest);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      border: 1px solid rgba(180, 119, 122, 0.2);
+      z-index: 2;
+    }
+
+    .card-pill-label {
+      position: absolute;
+      bottom: 12px;
+      left: 14px;
+      background: var(--accent-butter);
+      color: var(--accent-forest);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-full);
+      z-index: 2;
+    }
+
+    .card-content {
+      padding: 1.6rem 1.4rem 1.4rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+
+    .card-title {
+      font-family: var(--font-heading);
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--accent-forest);
+      margin-bottom: 0.65rem;
+      line-height: 1.25;
+    }
+
+    .card-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 1rem;
+    }
+
+    .card-closing {
+      font-family: var(--font-hand);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--accent-dusty-rose);
+      margin-bottom: 1.2rem;
+      line-height: 1.3;
+    }
+
+    .card-action-btn {
+      margin-top: auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      background: rgba(168, 181, 160, 0.18);
+      color: var(--accent-forest);
+      padding: 0.65rem 1rem;
+      border-radius: var(--radius-md);
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: var(--transition-smooth);
+    }
+
+    .category-card:hover .card-action-btn {
+      background: var(--accent-forest);
+      color: var(--bg-warm-white);
+    }
+
+    /* ==========================================================================
+       FEATURED COLLECTIONS
+       ========================================================================== */
+    .section-featured {
+      padding: 4rem 0 6rem;
+      position: relative;
+      background: rgba(255, 249, 241, 0.45);
+      border-top: 1px dashed var(--border-delicate);
+      border-bottom: 1px dashed var(--border-delicate);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+
+    .product-card {
+      background: var(--bg-warm-white);
+      border-radius: var(--radius-lg);
+      padding: 1rem;
+      border: 1px solid var(--border-delicate);
+      box-shadow: var(--shadow-soft);
+      transition: var(--transition-smooth);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--accent-dusty-rose);
+    }
+
+    .product-image-box {
+      width: 100%;
+      height: 220px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: relative;
+      background: var(--bg-cream);
+    }
+
+    .product-image-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .badge-made-with-love {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(4px);
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-full);
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--accent-dusty-rose);
+      z-index: 2;
+    }
+
+    .btn-wishlist {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-dusty-rose);
+      font-size: 1rem;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      z-index: 2;
+    }
+
+    .btn-wishlist.active {
+      background: var(--bg-soft-blush);
+      color: #e0245e;
+      transform: scale(1.15);
+    }
+
+    .product-details {
+      padding: 1.1rem 0.2rem 0.2rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .product-category-tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-sage);
+      margin-bottom: 0.25rem;
+    }
+
+    .product-title {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--accent-forest);
+      margin-bottom: 0.4rem;
+      line-height: 1.3;
+    }
+
+    .product-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+
+    .product-footer {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px dashed var(--border-delicate);
+      padding-top: 0.85rem;
+    }
+
+    .product-price-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent-dusty-rose);
+      background: rgba(180, 119, 122, 0.12);
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-sm);
+    }
+
+    .product-view-btn {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--accent-forest);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .product-view-btn:hover {
+      color: var(--accent-dusty-rose);
+    }
+
+    /* ==========================================================================
+       ABOUT US SECTION (SCRAPBOOK STORYTELLING)
+       ========================================================================== */
+    .section-about {
+      padding: 6rem 0;
+      position: relative;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 4rem;
+    }
+
+    .about-polaroid-stack {
+      position: relative;
+      height: 480px;
+    }
+
+    .polaroid-frame {
+      position: absolute;
+      background: var(--bg-warm-white);
+      padding: 14px 14px 34px 14px;
+      border-radius: 8px;
+      box-shadow: var(--shadow-hover);
+      border: 1px solid rgba(0,0,0,0.06);
+      transition: var(--transition-smooth);
+    }
+
+    .polaroid-frame:hover {
+      transform: scale(1.04) rotate(0deg) !important;
+      z-index: 25 !important;
+    }
+
+    .polaroid-inner {
+      width: 100%;
+      height: 160px;
+      border-radius: 6px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .polaroid-note {
+      font-family: var(--font-hand);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--accent-forest);
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .frame-1 {
+      top: 20px;
+      left: 10px;
+      width: 290px;
+      transform: rotate(-6deg);
+      z-index: 10;
+    }
+
+    .frame-2 {
+      bottom: 20px;
+      right: 20px;
+      width: 280px;
+      transform: rotate(5deg);
+      z-index: 12;
+    }
+
+    .about-content-box {
+      position: relative;
+      background: var(--bg-warm-white);
+      padding: 3rem;
+      border-radius: var(--radius-lg);
+      border: 1.5px solid var(--border-delicate);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .about-content-box .section-tag {
+      margin-bottom: 0.5rem;
+    }
+
+    .about-copy {
+      font-size: 1.05rem;
+      color: var(--text-dark);
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    .about-copy p { margin-bottom: 1rem; }
+
+    .about-quote {
+      font-family: var(--font-heading);
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--accent-dusty-rose);
+      line-height: 1.5;
+      margin-top: 1.5rem;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .value-card {
+      background: var(--bg-cream);
+      padding: 1.25rem 1.1rem;
+      border-radius: var(--radius-md);
+      border: 1px dashed var(--accent-sage);
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      transition: var(--transition-smooth);
+    }
+
+    .value-card:hover {
+      background: var(--bg-soft-blush);
+      transform: translateY(-3px);
+    }
+
+    .value-icon { font-size: 1.6rem; }
+    .value-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--accent-forest);
+    }
+
+    /* ==========================================================================
+       OUR TEAM SECTION
+       ========================================================================== */
+    .section-team {
+      padding: 5rem 0 6rem;
+      position: relative;
+      background: rgba(168, 181, 160, 0.12);
+    }
+
+    .section-team .section-header {
+      text-align: center;
+      align-items: center;
+    }
+
+    .section-team .section-subtitle {
+      text-align: center;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .team-card {
+      background: var(--bg-warm-white);
+      border-radius: var(--radius-lg);
+      padding: 1.8rem 1.2rem;
+      border: 1px solid var(--border-delicate);
+      box-shadow: var(--shadow-soft);
+      text-align: center;
+      position: relative;
+      transition: var(--transition-smooth);
+      min-height: 180px;
+    }
+
+    .team-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--accent-dusty-rose);
+    }
+
+    /* ==========================================================================
+       CONTACT US & VENUE SECTION
+       ========================================================================== */
+    .section-contact {
+      padding: 6rem 0;
+      position: relative;
+    }
+
+    .contact-card-main {
+      background: var(--bg-warm-white);
+      border-radius: var(--radius-lg);
+      border: 2px solid var(--border-delicate);
+      box-shadow: var(--shadow-hover);
+      padding: 3.5rem;
+      position: relative;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 3.5rem;
+      position: relative;
+    }
+
+    .contact-left .section-tag {
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-desc {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .info-icon-badge {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--bg-soft-blush);
+      border: 1px solid var(--accent-dusty-rose);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      color: var(--accent-forest);
+      flex-shrink: 0;
+    }
+
+    .info-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-dusty-rose);
+    }
+
+    .info-val {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--accent-forest);
+      line-height: 1.4;
+    }
+
+    .info-sub {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .map-frame-box {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 2px dashed var(--accent-sage);
+      background: var(--bg-cream);
+      height: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .map-frame-box .map-title {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--accent-forest);
+      margin-bottom: 0.5rem;
+    }
+
+    .map-frame-box .map-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 1.2rem;
+    }
+
+    .btn-map-link {
+      background: var(--accent-forest);
+      color: var(--bg-warm-white);
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--radius-full);
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-map-link:hover {
+      background: #25352a;
+      transform: translateY(-2px);
+    }
+
+    .map-hand-note {
+      font-family: var(--font-hand);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--accent-dusty-rose);
+      margin-top: 1.2rem;
+    }
+
+    .calendar-cta-box {
+      background: var(--accent-butter-light);
+      border: 1.5px dashed #ecd07a;
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      margin-top: 1.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .calendar-cta-box .cal-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .calendar-cta-box .cal-text strong {
+      font-size: 0.95rem;
+      color: var(--accent-forest);
+    }
+
+    .calendar-cta-box .cal-text span {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .btn-add-calendar {
+      background: var(--accent-forest);
+      color: var(--bg-warm-white);
+      padding: 0.65rem 1.2rem;
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: var(--transition-smooth);
+      white-space: nowrap;
+    }
+
+    .btn-add-calendar:hover {
+      background: #25352a;
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    .site-footer {
+      background-color: var(--accent-forest);
+      color: var(--bg-warm-white);
+      padding: 5rem 0 2.5rem;
+      position: relative;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .footer-brand h3 {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 0.4rem;
+      color: var(--accent-butter);
+    }
+
+    .footer-tagline {
+      font-family: var(--font-hand);
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--bg-soft-blush);
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-desc {
+      font-size: 0.92rem;
+      line-height: 1.65;
+      color: rgba(255, 249, 241, 0.75);
+    }
+
+    .footer-nav-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-butter);
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .footer-link {
+      color: rgba(255, 249, 241, 0.8);
+      font-size: 0.92rem;
+      transition: color 0.2s ease, padding-left 0.2s ease;
+    }
+
+    .footer-link:hover {
+      color: var(--accent-butter);
+      padding-left: 4px;
+    }
+
+    .footer-event-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .footer-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.92rem;
+      color: rgba(255, 249, 241, 0.85);
+    }
+
+    .footer-info-item .fi-icon {
+      font-size: 1rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .footer-info-item strong {
+      color: var(--bg-warm-white);
+    }
+
+    .footer-free-entry {
+      color: var(--accent-butter);
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+
+    .footer-divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(255, 249, 241, 0.15);
+      margin-bottom: 2rem;
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.88rem;
+      color: rgba(255, 249, 241, 0.7);
+    }
+
+    .footer-heart-msg {
+      font-family: var(--font-hand);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: rgba(255, 249, 241, 0.85);
+    }
+
+    .btn-back-to-top {
+      background: rgba(255, 249, 241, 0.1);
+      border: 1px solid rgba(255, 249, 241, 0.25);
+      color: var(--bg-warm-white);
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-full);
+      font-size: 0.82rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-back-to-top:hover {
+      background: var(--accent-butter);
+      color: var(--accent-forest);
+    }
+
+    /* Modals */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(34, 50, 39, 0.7);
+      backdrop-filter: blur(8px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .modal-overlay.active { display: flex; }
+
+    .modal-dialog {
+      background: var(--bg-warm-white);
+      width: 100%;
+      max-width: 680px;
+      border-radius: var(--radius-lg);
+      border: 2px solid var(--accent-dusty-rose);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+      position: relative;
+      overflow: hidden;
+      max-height: calc(100vh - 3rem);
+      overflow-y: auto;
+    }
+
+    .modal-header-banner {
+      height: 150px;
+      background: var(--bg-soft-blush);
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      padding: 1.5rem;
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--bg-warm-white);
+      border: 1px solid var(--border-delicate);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      color: var(--accent-forest);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .modal-close-btn:hover {
+      background: var(--accent-forest);
+      color: var(--bg-warm-white);
+    }
+
+    .modal-body { padding: 2rem; }
+
+    .modal-products {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 220px));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .modal-product {
+      background: var(--bg-warm-white);
+      border-radius: var(--radius-md);
+      padding: 8px;
+      box-shadow: var(--shadow-hover);
+      text-align: center;
+    }
+
+    .modal-product img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 12px;
+      display: block;
+    }
+
+    .modal-product span {
+      display: block;
+      font-family: var(--font-hand);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--accent-forest);
+      margin-top: 6px;
+    }
+
+    .toast-notice {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: var(--accent-forest);
+      color: var(--bg-warm-white);
+      padding: 0.85rem 1.4rem;
+      border-radius: var(--radius-full);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      font-size: 0.9rem;
+      font-weight: 600;
+      z-index: 3000;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.35s ease;
+    }
+
+    .toast-notice.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE DESIGN
+       ========================================================================== */
+    @media (max-width: 1200px) {
+      .team-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-title-main { font-size: 3.2rem; }
+      .hero-visual-collage {
+        min-height: 380px;
+      }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-polaroid-stack {
+        height: 350px;
+        order: 2;
+      }
+      .about-content-box { order: 1; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .team-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links, .wishlist-pill, .btn-nav-cta { display: none; }
+      .mobile-menu-btn { display: flex; }
+      .hero-title-main { font-size: 2.6rem; }
+      .hero-title-sub { font-size: 2rem; }
+      .section-title { font-size: 2.2rem; }
+      .category-card { flex: 0 0 290px; }
+      .footer-top { grid-template-columns: 1fr; }
+      .contact-card-main, .about-content-box { padding: 2rem 1.5rem; }
+      .team-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+      }
+      .team-card {
+        min-height: 150px;
+        padding: 1.5rem 1rem;
+      }
+      .card-center-poster {
+        width: 260px;
+        height: 350px;
+      }
+      .about-polaroid-stack {
+        height: 300px;
+      }
+      .frame-1 { width: 230px; }
+      .frame-2 { width: 220px; }
+      .calendar-cta-box {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title-main { font-size: 2rem; }
+      .hero-title-sub { font-size: 1.5rem; }
+      .section-title { font-size: 1.8rem; }
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.85rem;
+      }
+      .team-card {
+        min-height: 130px;
+        padding: 1.2rem 0.8rem;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+      .card-center-poster {
+        width: 220px;
+        height: 300px;
+      }
+      .hero-visual-collage {
+        min-height: 320px;
+      }
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STICKY NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-wrapper">
+      <a href="#home" class="nav-logo" aria-label="Festive Bazaar Home">
+        <div class="logo-badge">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="24" r="22" fill="#FFF9F1" stroke="#A8B5A0" stroke-width="2"/>
+            <path d="M14 26L18 16L24 22L30 16L34 26H14Z" fill="#F2D58A" stroke="#34483A" stroke-width="1.5" stroke-linejoin="round"/>
+            <circle cx="18" cy="15" r="1.5" fill="#B4777A"/>
+            <circle cx="24" cy="20" r="1.5" fill="#B4777A"/>
+            <circle cx="30" cy="15" r="1.5" fill="#B4777A"/>
+            <path d="M12 32C16 34 32 34 36 32" stroke="#34483A" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="logo-text-group">
+          <span class="logo-title">FESTIVE BAZAAR</span>
+          <span class="logo-sub">Budget me blast ✨</span>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#products" class="nav-link">Products</a></li>
+        <li><a href="#about" class="nav-link">About Us</a></li>
+        <li><a href="#team" class="nav-link">Our Team</a></li>
+        <li><a href="#contact" class="nav-link">Contact Us</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="wishlist-pill" id="wishlistHeaderBtn" onclick="toggleWishlistModal()">
+          <span>💗</span>
+          <span>Saved</span>
+          <strong id="wishlistCount">0</strong>
+        </button>
+
+        <a href="#products" class="btn-nav-cta">
+          <span>Explore Bazaar</span>
+          <span>→</span>
+        </a>
+
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <a href="#home" class="nav-link" onclick="closeMobileMenu()">Home</a>
+      <a href="#products" class="nav-link" onclick="closeMobileMenu()">Products (The Bazaar Edit)</a>
+      <a href="#about" class="nav-link" onclick="closeMobileMenu()">About Us</a>
+      <a href="#team" class="nav-link" onclick="closeMobileMenu()">Our Team</a>
+      <a href="#contact" class="nav-link" onclick="closeMobileMenu()">Contact & Location</a>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <header class="hero-section" id="home">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-institution-banner">
+          🏛️ Presented by PCET's S.B. Patil Institute of Management, Pune
+        </div>
+
+        <div class="hero-eyebrow">
+          <span>HEY, PUNE! 👀💌</span>
+        </div>
+
+        <h1 class="hero-title-main">Your Wallet Called…</h1>
+        <h2 class="hero-title-sub">It Said, "LET'S GO SHOPPING!" 🛍️</h2>
+
+        <div class="sticker-budget">
+          Tagline: "Budget me blast" 💥
+        </div>
+
+        <p class="hero-description">
+          Cute finds, festive fits, delicious bites and main-character moments — all waiting for you in one place. 
+          <em>"A little bling, a lot of zing. Pretty little things, affordable bling."</em>
+        </p>
+
+        <div class="hero-meta-strip">
+          <div class="meta-tag">
+            <span>📅</span>
+            <span>Date: <strong>27 October 2026</strong></span>
+          </div>
+          <div class="meta-tag">
+            <span>📍</span>
+            <span>Venue: <strong>S.B. Patil Inst. of Management, Pune</strong></span>
+          </div>
+          <div class="meta-tag">
+            <span>✨</span>
+            <span>Entry: <strong>Free for College Students</strong></span>
+          </div>
+        </div>
+
+        <div class="hero-ctas">
+          <button class="btn-primary-hero" onclick="triggerPartyConfetti()">
+            <span>YOUR NEXT FAVOURITE PLAN AWAITS</span>
+            <span>→</span>
+          </button>
+          
+          <a href="#products" class="btn-secondary-hero">
+            <span>EXPLORE THE BAZAAR</span>
+            <span>↓</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Hero Visual Collage -->
+      <div class="hero-visual-collage">
+        <div class="floating-sticker sticker-good-vibes">GOOD VIBES ONLY 💖</div>
+
+        <!-- Official Poster Frame -->
+        <div class="scrapbook-card card-center-poster">
+          <div class="washi-tape" style="top: -12px; left: 80px;"></div>
+          <div class="washi-tape sage" style="top: -8px; right: 40px;"></div>
+          <div class="card-photo-wrapper">
+            <img src="images/official-poster.jpg" alt="Festive Bazaar official fest poster" style="width:100%; height:100%; object-fit:cover; display:block;">
+          </div>
+          <div class="caption-tag">Official Fest Poster ✨</div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- PRODUCTS: NETFLIX-STYLE BROWSING -->
+  <section class="section-products" id="products">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">✨ Curated with love for you</span>
+        <h2 class="section-title">THE BAZAAR EDIT ✨</h2>
+        <p class="section-subtitle">Three reasons to leave your room and text the group chat. Smooth horizontal browsing inspired by your favourite streaming watchlist.</p>
+      </div>
+
+      <div class="filter-chips-container" id="filterChips">
+        <button class="filter-chip active" onclick="filterCategory('all', this)">⭐ All Categories (3)</button>
+        <button class="filter-chip" onclick="filterCategory('accessories', this)">🎀 Handmade Accessories</button>
+        <button class="filter-chip" onclick="filterCategory('food', this)">🍟 Foodie Corner</button>
+        <button class="filter-chip" onclick="filterCategory('games', this)">🎯 Games & Fun</button>
+      </div>
+
+      <div class="carousel-outer">
+        <button class="carousel-nav-btn carousel-prev" onclick="scrollCarousel(-1)" aria-label="Previous Slide">❮</button>
+
+        <div class="carousel-track" id="netflixCarousel">
+          <!-- Card 01 - Handmade Accessories -->
+          <article class="category-card" data-cat="accessories" onclick="openCategoryModal('01')">
+            <div class="card-media" style="background: #F6D8D8;">
+              <span class="card-badge-num">01 / 03</span>
+              <span class="card-pill-label">YOUR CUTE-FIND DESTINATION</span>
+              <img src="images/handmade-accessories.jpg" alt="Handmade charm earrings and necklaces">
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Handmade Accessories 🎀</h3>
+              <p class="card-desc">Small accessories, BIG personality! Discover adorable handmade cute charms, quirky keychains, and little pieces that make every outfit feel more YOU.</p>
+              <div class="card-closing">"Cute enough to keep. Affordable enough to collect. 💅"</div>
+              <div class="card-action-btn"><span>Explore Collection</span><span>→</span></div>
+            </div>
+          </article>
+
+          <!-- Card 02 - Foodie Corner -->
+          <article class="category-card" data-cat="food" onclick="openCategoryModal('02')">
+            <div class="card-media" style="background: #FFF9F1;">
+              <span class="card-badge-num">02 / 03</span>
+              <span class="card-pill-label">SHOPPING NEEDS SNACK BREAKS</span>
+              <img src="images/basundi.jpg" alt="Basundi - delicious Indian dessert">
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Foodie Corner 🍟</h3>
+              <p class="card-desc">From delicious bites to your favourite snack cravings, come hungry and discover treats worth gathering your gang for. Good food, great company!</p>
+              <div class="card-closing">"Calories can wait. The food queue cannot. 😭"</div>
+              <div class="card-action-btn"><span>Explore Collection</span><span>→</span></div>
+            </div>
+          </article>
+
+          <!-- Card 03 - Games -->
+          <article class="category-card" data-cat="games" onclick="openCategoryModal('03')">
+            <div class="card-media" style="background: #A8B5A0;">
+              <span class="card-badge-num">03 / 03</span>
+              <span class="card-pill-label">FRIENDLY COMPETITION, UNLIMITED FUN</span>
+              <img src="images/colour-clash.jpg" alt="Colour Clash game">
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Games & Good Times 🎯</h3>
+              <p class="card-desc">Colors, chaos, and a whole lot of confusion! 😵‍💫 Think fast, stay sharp, and prove you've got the ultimate game face!</p>
+              <div class="card-closing">"The gang that plays together, slays together. 🏆"</div>
+              <div class="card-action-btn"><span>Explore Collection</span><span>→</span></div>
+            </div>
+          </article>
+        </div>
+
+        <button class="carousel-nav-btn carousel-next" onclick="scrollCarousel(1)" aria-label="Next Slide">❯</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED COLLECTIONS -->
+  <section class="section-featured" id="featured">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">💌 Addictive college essentials</span>
+        <h2 class="section-title">LITTLE FINDS, BIG OBSESSION 💗</h2>
+        <p class="section-subtitle">A curated peek into the handcrafted cute goods and festive accessories you can grab at our stalls.</p>
+      </div>
+
+      <div class="products-grid">
+        <!-- Item 1 -->
+        <div class="product-card">
+          <div class="product-image-box">
+            <span class="badge-made-with-love">✨ Made with love</span>
+            <button class="btn-wishlist" onclick="toggleWishlist(this, 'Charm Earrings Collection')">♥️</button>
+            <img src="images/handmade-accessories.jpg" alt="Charm earrings collection">
+          </div>
+          <div class="product-details">
+            <span class="product-category-tag">Handmade Accessories</span>
+            <h4 class="product-title">Charm Earrings Collection</h4>
+            <p class="product-desc">Adorable handmade charm earrings with hearts, stars and cute pendants. Add sparkle to your everyday look!</p>
+            <div class="product-footer">
+              <span class="product-price-label">Budget Friendly 🎀</span>
+              <span class="product-view-btn">View details →</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="product-card">
+          <div class="product-image-box">
+            <span class="badge-made-with-love">🍴 Fresh & Yummy</span>
+            <button class="btn-wishlist" onclick="toggleWishlist(this, 'Garlic Bread Special')">♥️</button>
+            <img src="images/garlic-bread.jpg" alt="Cheesy garlic bread">
+          </div>
+          <div class="product-details">
+            <span class="product-category-tag">Foodie Corner</span>
+            <h4 class="product-title">Garlic Bread Special</h4>
+            <p class="product-desc">Loaded cheesy garlic bread — crispy, buttery, and absolutely divine. The ultimate shopping fuel!</p>
+            <div class="product-footer">
+              <span class="product-price-label">Must Try 🍞</span>
+              <span class="product-view-btn">View details →</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="product-card">
+          <div class="product-image-box">
+            <span class="badge-made-with-love">🍨 Sweet Treat</span>
+            <button class="btn-wishlist" onclick="toggleWishlist(this, 'Basundi Delight')">♥️</button>
+            <img src="images/basundi.jpg" alt="Traditional Basundi dessert">
+          </div>
+          <div class="product-details">
+            <span class="product-category-tag">Foodie Corner</span>
+            <h4 class="product-title">Basundi Delight</h4>
+            <p class="product-desc">Rich, creamy traditional Basundi topped with pistachios and saffron. A festive treat you can't miss!</p>
+            <div class="product-footer">
+              <span class="product-price-label">Festive Fave 🎉</span>
+              <span class="product-view-btn">View details →</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="product-card">
+          <div class="product-image-box">
+            <span class="badge-made-with-love">🎮 Game Time</span>
+            <button class="btn-wishlist" onclick="toggleWishlist(this, 'Colour Clash Game')">♥️</button>
+            <img src="images/colour-clash.jpg" alt="Colour Clash game">
+          </div>
+          <div class="product-details">
+            <span class="product-category-tag">Games & Fun</span>
+            <h4 class="product-title">Colour Clash</h4>
+            <p class="product-desc">A fast-paced colour matching challenge! Think quick, stay sharp, and beat your friends in this exciting game.</p>
+            <div class="product-footer">
+              <span class="product-price-label">Fun Zone 🎯</span>
+              <span class="product-view-btn">Play now →</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT US SECTION -->
+  <section class="section-about" id="about">
+    <div class="container about-grid">
+      <!-- Polaroid Stack -->
+      <div class="about-polaroid-stack">
+        <div class="polaroid-frame frame-1">
+          <div class="washi-tape" style="top: -10px; left: 60px;"></div>
+          <div class="polaroid-inner" style="background: var(--bg-soft-blush);">
+            <div style="text-align:center; padding: 1rem;">
+              <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">🏛️</div>
+              <div style="font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; color: var(--accent-forest);">PCET's SBPIM</div>
+              <div style="font-family: var(--font-hand); font-size: 1.25rem; color: var(--accent-dusty-rose);">Pune Campus Vibe 🎓</div>
+            </div>
+          </div>
+          <div class="polaroid-note">Brought by SBPIM Pune 🎓</div>
+        </div>
+
+        <div class="polaroid-frame frame-2">
+          <div class="washi-tape yellow" style="top: -10px; right: 50px;"></div>
+          <div class="polaroid-inner" style="background: var(--accent-sage); opacity: 0.3;">
+            <div style="text-align:center; padding: 1rem;">
+              <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎁✨</div>
+              <div style="font-family: var(--font-hand); font-size: 1.5rem; font-weight: 700; color: var(--accent-forest);">Creativity & Joy</div>
+            </div>
+          </div>
+          <div class="polaroid-note">Memories with the gang ❤️</div>
+        </div>
+      </div>
+
+      <!-- About Content -->
+      <div class="about-content-box">
+        <span class="section-tag">✨ Behind our festival</span>
+        <h2 class="section-title" style="margin-bottom: 1.5rem;">MORE THAN A BAZAAR, IT'S A WHOLE VIBE.</h2>
+        
+        <div class="about-copy">
+          <p><strong>Festive Bazaar</strong> is where creativity meets celebration! Brought to you by <strong>PCET's S.B. Patil Institute of Management, Pune</strong>, this festive experience brings together handmade treasures, festive jewellery, delicious food, refreshing drinks and exciting games.</p>
+          <p>Whether you're hunting for your next cute accessory, looking for festive favourites, satisfying your cravings or making unforgettable memories with your gang, there's something waiting for you.</p>
+        </div>
+
+        <div class="about-quote">
+          "Come for the finds. Stay for the fun. Leave with memories."
+        </div>
+
+        <div class="values-grid" style="margin-top: 2rem;">
+          <div class="value-card">
+            <span class="value-icon">🎀</span>
+            <span class="value-title">Handmade Treasures</span>
+          </div>
+          <div class="value-card">
+            <span class="value-icon">🍟</span>
+            <span class="value-title">Delicious Bites</span>
+          </div>
+          <div class="value-card">
+            <span class="value-icon">🎯</span>
+            <span class="value-title">Fun Games</span>
+          </div>
+          <div class="value-card">
+            <span class="value-icon">💗</span>
+            <span class="value-title">Festive Spirit</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR TEAM SECTION -->
+  <section class="section-team" id="team">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">✨ SBPIM Student Organizers</span>
+        <h2 class="section-title">THE BRAINS, THE CREATIVITY, THE CHAOS 💌</h2>
+        <p class="section-subtitle">Meet the passionate people bringing the bazaar to life. Dedicated student leads, stall creators and festival curators.</p>
+      </div>
+
+      <div class="team-grid">
+        <!-- 17 empty team cards -->
+        <div class="team-card"></div>
+        <div class="team-card"></div>
+        <div class="team-card"></div>
+        <div class="team-card"></div>
+        <div class="team-card"></div>
+        <div class="team-card"></div>
+        <div class="team-card"></div>
+        <div class="team-card"></div>
+        <div class="team-card"></div>
+        <div class="team-card"></div>
+        <div class="team-card"></div>
+        <div class="team-card"></div>
+        <div class="team-card"></div>
+        <div class="team-card"></div>
+        <div class="team-card"></div>
+        <div class="team-card"></div>
+        <div class="team-card"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT US & VENUE SECTION -->
+  <section class="section-contact" id="contact">
+    <div class="container">
+      <div class="contact-card-main">
+        <div class="contact-grid">
+          <!-- Left Column -->
+          <div class="contact-left">
+            <span class="section-tag">💌 Mark your calendar</span>
+            <h2 class="section-title" style="margin-bottom: 1rem;">DON'T JUST HEAR ABOUT IT. BE THERE. 👀</h2>
+            <p class="contact-desc">Your festive plans are officially sorted. Bring your besties, your shopping mood and your appetite!</p>
+
+            <div class="info-item">
+              <div class="info-icon-badge">📅</div>
+              <div>
+                <span class="info-label">EVENT DATE</span>
+                <div class="info-val">Tuesday, 27 October 2026</div>
+                <span class="info-sub">From 10:00 AM onwards</span>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon-badge">📍</div>
+              <div>
+                <span class="info-label">LOCATION / CAMPUS</span>
+                <div class="info-val">PCET's S.B. Patil Institute of Management (SBPIM)</div>
+                <span class="info-sub">Sector 26, Pradhikaran, Nigdi, Pune, Maharashtra 411044</span>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon-badge">👤</div>
+              <div>
+                <span class="info-label">STUDENT COORDINATORS</span>
+                <div class="info-val">[Coordinator Contact Placeholder] • SBPIM Pune</div>
+                <span class="info-sub">Email: festivebazaar@sbpatilmba.com</span>
+              </div>
+            </div>
+
+            <div class="calendar-cta-box">
+              <div class="cal-text">
+                <strong>Never miss the fest!</strong>
+                <span>Add 27 Oct 2026 to your Google or Apple Calendar</span>
+              </div>
+              <button class="btn-add-calendar" onclick="addToCalendar()">
+                <span>+</span>
+                <span>Add to Calendar</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Right Column - Map -->
+          <div class="contact-right">
+            <div class="map-frame-box">
+              <div style="font-size: 2rem; margin-bottom: 0.5rem;">📍🗺️</div>
+              <div class="map-title">S.B. Patil Institute of Management</div>
+              <p class="map-desc">Located in Nigdi Pradhikaran, Pune. Easy access via Akurdi Railway Station & Old Pune-Mumbai Highway.</p>
+              <a href="https://maps.google.com/?q=SB+Patil+Institute+of+Management+Pune" target="_blank" class="btn-map-link">
+                <span>Open in Google Maps</span>
+                <span>↗</span>
+              </a>
+            </div>
+            <div class="map-hand-note" style="text-align: center; margin-top: 1rem;">
+              "The countdown has begun. Get your ethnic fits ready! 👗"
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <!-- Column 1: Brand -->
+        <div class="footer-brand">
+          <h3>FESTIVE BAZAAR</h3>
+          <div class="footer-tagline">"Budget me blast" 💥</div>
+          <p class="footer-desc">Presented by PCET's S.B. Patil Institute of Management, Pune. Celebrating handmade creativity, delicious food and festive spirit.</p>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div>
+          <h4 class="footer-nav-title">QUICK LINKS</h4>
+          <ul class="footer-links">
+            <li><a href="#home" class="footer-link">Home & Schedule</a></li>
+            <li><a href="#products" class="footer-link">The Bazaar Edit</a></li>
+            <li><a href="#featured" class="footer-link">Handmade Collections</a></li>
+            <li><a href="#about" class="footer-link">About SBPIM & Story</a></li>
+            <li><a href="#team" class="footer-link">Student Organizers</a></li>
+            <li><a href="#contact" class="footer-link">Location & Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Event Info -->
+        <div>
+          <h4 class="footer-nav-title">EVENT INFO</h4>
+          <div class="footer-event-info">
+            <div class="footer-info-item">
+              <span class="fi-icon">📅</span>
+              <span><strong>27 October 2026</strong></span>
+            </div>
+            <div class="footer-info-item">
+              <span class="fi-icon">📍</span>
+              <span><strong>PCET's S.B. Patil Institute of Management, Pune</strong></span>
+            </div>
+            <div class="footer-free-entry">Free Entry for College Students ✨</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="footer-bottom">
+        <span>© 2026 FESTIVE BAZAAR • PCET's S.B. Patil Institute of Management, Pune.</span>
+        <span class="footer-heart-msg">Made with creativity, chai, and a little festive chaos. 💗</span>
+        <button class="btn-back-to-top" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+          <span>Back to Top</span>
+          <span>↑</span>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WISHLIST MODAL -->
+  <div class="modal-overlay" id="wishlistModal" onclick="closeModalOnOverlay(event)">
+    <div class="modal-dialog">
+      <div class="modal-header-banner" style="background: linear-gradient(135deg, var(--bg-soft-blush), var(--accent-butter-light));">
+        <button class="modal-close-btn" onclick="toggleWishlistModal()">✕</button>
+        <h3 style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--accent-forest);">💗 Your Saved Items</h3>
+      </div>
+      <div class="modal-body" id="wishlistModalBody">
+        <p style="text-align:center; color: var(--text-muted); padding: 2rem 0;">No items saved yet. Browse the bazaar and save your favourites!</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY MODAL -->
+  <div class="modal-overlay" id="categoryModal" onclick="closeModalOnOverlay(event)">
+    <div class="modal-dialog">
+      <div class="modal-header-banner" id="categoryModalHeader">
+        <button class="modal-close-btn" onclick="closeCategoryModal()">✕</button>
+        <h3 id="categoryModalTitle" style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--accent-forest);"></h3>
+      </div>
+      <div class="modal-body" id="categoryModalBody"></div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast-notice" id="toastNotice">
+    <span id="toastMsg"></span>
+  </div>
+
+  <script>
+    // ==========================================================================
+    // NAVIGATION - Sticky, Scroll, Active State, Mobile Menu
+    // ==========================================================================
+    const navbar = document.getElementById('navbar');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section[id], header[id]');
+
+    window.addEventListener('scroll', () => {
+      // Sticky navbar visual change
+      if (window.scrollY > 40) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+
+      // Active nav link based on scroll position
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 120;
+        if (window.scrollY >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileDrawer.classList.toggle('open');
+      mobileMenuBtn.classList.toggle('open');
+    });
+
+    function closeMobileMenu() {
+      mobileDrawer.classList.remove('open');
+      mobileMenuBtn.classList.remove('open');
+    }
+
+    // ==========================================================================
+    // CATEGORY FILTER & CAROUSEL
+    // ==========================================================================
+    function filterCategory(cat, btn) {
+      // Update active chip
+      document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+
+      // Filter cards
+      const cards = document.querySelectorAll('.category-card');
+      cards.forEach(card => {
+        if (cat === 'all' || card.dataset.cat === cat) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function scrollCarousel(dir) {
+      const track = document.getElementById('netflixCarousel');
+      const scrollAmount = 360;
+      track.scrollBy({ left: dir * scrollAmount, behavior: 'smooth' });
+    }
+
+    // ==========================================================================
+    // WISHLIST SYSTEM
+    // ==========================================================================
+    let wishlistItems = [];
+
+    function toggleWishlist(btn, itemName) {
+      event.stopPropagation();
+      btn.classList.toggle('active');
+      
+      if (btn.classList.contains('active')) {
+        if (!wishlistItems.includes(itemName)) {
+          wishlistItems.push(itemName);
+        }
+        showToast('💗 Added "' + itemName + '" to saved!');
+      } else {
+        wishlistItems = wishlistItems.filter(i => i !== itemName);
+        showToast('Removed "' + itemName + '" from saved.');
+      }
+      
+      document.getElementById('wishlistCount').textContent = wishlistItems.length;
+      updateWishlistModal();
+    }
+
+    function toggleWishlistModal() {
+      const modal = document.getElementById('wishlistModal');
+      modal.classList.toggle('active');
+    }
+
+    function updateWishlistModal() {
+      const body = document.getElementById('wishlistModalBody');
+      if (wishlistItems.length === 0) {
+        body.innerHTML = '<p style="text-align:center; color: var(--text-muted); padding: 2rem 0;">No items saved yet. Browse the bazaar and save your favourites!</p>';
+      } else {
+        let html = '<ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem;">';
+        wishlistItems.forEach(item => {
+          html += '<li style="background: var(--bg-cream); padding: 1rem; border-radius: var(--radius-md); border: 1px dashed var(--border-delicate); display: flex; justify-content: space-between; align-items: center;">';
+          html += '<span style="font-weight: 600; color: var(--accent-forest);">💗 ' + item + '</span>';
+          html += '<button onclick="removeWishlistItem(\'' + item.replace(/'/g, "\\'") + '\')" style="background: none; color: var(--accent-dusty-rose); font-size: 0.85rem; font-weight: 600; cursor: pointer;">Remove</button>';
+          html += '</li>';
+        });
+        html += '</ul>';
+        body.innerHTML = html;
+      }
+    }
+
+    function removeWishlistItem(itemName) {
+      wishlistItems = wishlistItems.filter(i => i !== itemName);
+      document.getElementById('wishlistCount').textContent = wishlistItems.length;
+      updateWishlistModal();
+      
+      // Update button states
+      document.querySelectorAll('.btn-wishlist.active').forEach(btn => {
+        // Simple reset - won't perfectly match but functional
+      });
+      
+      showToast('Removed "' + itemName + '" from saved.');
+    }
+
+    // ==========================================================================
+    // CATEGORY MODAL
+    // ==========================================================================
+    const categoryData = {
+      '01': {
+        title: 'Handmade Accessories 🎀',
+        color: 'var(--bg-soft-blush)',
+        desc: 'Adorable handmade charms, earrings, necklaces, keychains and more. Each piece is crafted with love, making your outfit pop without breaking the bank!',
+        tagline: '"Small accessories, BIG personality! Cute enough to keep, affordable enough to collect." 💅'
+      },
+      '02': {
+        title: 'Foodie Corner 🍟',
+        color: 'var(--accent-butter-light)',
+        desc: 'From cheesy garlic bread to traditional Basundi, our food stalls serve up all the yummy treats you need to fuel your shopping spree!',
+        tagline: '"Calories can wait. The food queue cannot." 🍞🍨'
+      },
+      '03': {
+        title: 'Games & Good Times 🎯',
+        color: 'rgba(168, 181, 160, 0.3)',
+        desc: 'Colour Clash and more exciting games! Challenge your friends, win bragging rights, and create unforgettable memories!',
+        tagline: '"The gang that plays together, slays together." 🏆'
+      }
+    };
+
+    function openCategoryModal(id) {
+      const data = categoryData[id];
+      if (!data) return;
+      
+      document.getElementById('categoryModalTitle').textContent = data.title;
+      document.getElementById('categoryModalHeader').style.background = data.color;
+      
+      let html = '<p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 1.5rem;">' + data.desc + '</p>';
+      html += '<p style="font-family: var(--font-hand); font-size: 1.3rem; color: var(--accent-dusty-rose); text-align: center;">' + data.tagline + '</p>';
+      
+      document.getElementById('categoryModalBody').innerHTML = html;
+      document.getElementById('categoryModal').classList.add('active');
+    }
+
+    function closeCategoryModal() {
+      document.getElementById('categoryModal').classList.remove('active');
+    }
+
+    function closeModalOnOverlay(e) {
+      if (e.target === e.currentTarget) {
+        e.currentTarget.classList.remove('active');
+      }
+    }
+
+    // ==========================================================================
+    // TOAST NOTIFICATIONS
+    // ==========================================================================
+    function showToast(msg) {
+      const toast = document.getElementById('toastNotice');
+      document.getElementById('toastMsg').textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2800);
+    }
+
+    // ==========================================================================
+    // ADD TO CALENDAR
+    // ==========================================================================
+    function addToCalendar() {
+      const title = 'FESTIVE BAZAAR - PCET\'s S.B. Patil Institute of Management';
+      const date = '20261027';
+      const details = 'Festive Bazaar - Budget me blast! Cute finds, festive fits, delicious bites and main-character moments.';
+      const location = 'PCET\'s S.B. Patil Institute of Management, Nigdi Pradhikaran, Pune';
+      
+      const googleUrl = 'https://www.google.com/calendar/render?action=TEMPLATE'
+        + '&text=' + encodeURIComponent(title)
+        + '&dates=' + date + 'T043000Z/' + date + 'T123000Z'
+        + '&details=' + encodeURIComponent(details)
+        + '&location=' + encodeURIComponent(location);
+      
+      window.open(googleUrl, '_blank');
+      showToast('📅 Opening Google Calendar...');
+    }
+
+    // ==========================================================================
+    // CONFETTI EFFECT
+    // ==========================================================================
+    function triggerPartyConfetti() {
+      const colors = ['#F2D58A', '#B4777A', '#A8B5A0', '#F6D8D8', '#34483A', '#FFF9F1'];
+      const container = document.body;
+      
+      for (let i = 0; i < 60; i++) {
+        const confetti = document.createElement('div');
+        confetti.style.cssText = `
+          position: fixed;
+          top: -10px;
+          left: ${Math.random() * 100}vw;
+          width: ${Math.random() * 10 + 6}px;
+          height: ${Math.random() * 10 + 6}px;
+          background: ${colors[Math.floor(Math.random() * colors.length)]};
+          border-radius: ${Math.random() > 0.5 ? '50%' : '2px'};
+          z-index: 9999;
+          pointer-events: none;
+          animation: confettiFall ${Math.random() * 2 + 2}s linear forwards;
+        `;
+        container.appendChild(confetti);
+        setTimeout(() => confetti.remove(), 4000);
+      }
+      
+      showToast('🎉 See you at FESTIVE BAZAAR on 27 Oct 2026!');
+    }
+
+    // Add confetti animation
+    const confettiStyle = document.createElement('style');
+    confettiStyle.textContent = `
+      @keyframes confettiFall {
+        0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+        100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+      }
+    `;
+    document.head.appendChild(confettiStyle);
+
+    // ==========================================================================
+    // KEYBOARD: ESC closes modals
+    // ==========================================================================
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-overlay.active').forEach(m => m.classList.remove('active'));
+      }
+    });
+  </script>
+</body>
+</html>
