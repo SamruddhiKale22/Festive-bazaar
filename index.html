@@ -1120,46 +1120,541 @@
     }
 
     /* ==========================================================================
-       OUR TEAM SECTION
+       OUR TEAM SECTION - FESTIVE BAZAAR CARNIVAL EDITION
        ========================================================================== */
     .section-team {
-      padding: 5rem 0 6rem;
+      padding: 6.5rem 0 7.5rem;
       position: relative;
-      background: rgba(168, 181, 160, 0.12);
+      background: radial-gradient(circle at 50% 6%, rgba(254, 240, 138, 0.32) 0%, rgba(254, 226, 226, 0.4) 22%, rgba(253, 250, 245, 0.98) 55%, rgba(241, 235, 224, 0.85) 100%);
+      overflow: hidden;
+    }
+
+    /* Festive Bunting & Hanging Garland at Top of Section */
+    .bazaar-garland-wrap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 48px;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .bazaar-garland-svg {
+      width: 100%;
+      height: 48px;
+      display: block;
+    }
+
+    /* Ambient floating festive stickers / stamps */
+    .bazaar-floating-sticker {
+      position: absolute;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 1rem;
+      font-family: var(--font-hand);
+      font-size: 1.15rem;
+      font-weight: 700;
+      background: #FFFFFF;
+      border: 1.5px dashed var(--accent-dusty-rose);
+      border-radius: var(--radius-full);
+      box-shadow: 0 4px 14px rgba(45, 59, 44, 0.08);
+      pointer-events: none;
+      user-select: none;
+      z-index: 1;
+      animation: floatSticker 5s ease-in-out infinite alternate;
+    }
+
+    .bazaar-sticker-left {
+      top: 90px;
+      left: 2.5%;
+      color: var(--accent-forest);
+      transform: rotate(-6deg);
+    }
+
+    .bazaar-sticker-right {
+      top: 110px;
+      right: 2.5%;
+      color: var(--accent-dusty-rose);
+      transform: rotate(5deg);
+      animation-delay: -2.5s;
+    }
+
+    @keyframes floatSticker {
+      0% { transform: translateY(0) rotate(-6deg); }
+      100% { transform: translateY(-8px) rotate(-3deg); }
+    }
+
+    @media (max-width: 900px) {
+      .bazaar-floating-sticker { display: none; }
     }
 
     .section-team .section-header {
       text-align: center;
       align-items: center;
+      position: relative;
+      z-index: 3;
     }
 
     .section-team .section-subtitle {
       text-align: center;
+      max-width: 680px;
+      margin: 0.8rem auto 0;
     }
 
-    .team-grid {
+    /* Mini chips under subtitle */
+    .bazaar-meta-strip {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.6rem;
+      margin-top: 1.25rem;
+    }
+
+    .bazaar-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: var(--accent-forest);
+      background: #FFFFFF;
+      padding: 0.35rem 0.95rem;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(180, 119, 122, 0.3);
+      box-shadow: 0 2px 6px rgba(45, 59, 44, 0.04);
+    }
+
+    /* --- Lead Members (Top 4 Festival Chiefs) --- */
+    .team-leads-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 1.5rem;
-      margin-top: 3rem;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.75rem;
+      margin-top: 3.5rem;
+      position: relative;
+      z-index: 3;
     }
 
-    .team-card {
-      background: var(--bg-warm-white);
-      border-radius: var(--radius-lg);
-      padding: 1.8rem 1.2rem;
-      border: 1px solid var(--border-delicate);
-      box-shadow: var(--shadow-soft);
+    .team-lead-card {
+      background: linear-gradient(180deg, #FFFFFF 0%, #FFFDF9 100%);
+      border-radius: 22px;
+      padding: 2.2rem 1.4rem 2rem;
+      border: 2px solid rgba(220, 212, 198, 0.9);
+      box-shadow: 0 12px 28px -6px rgba(45, 59, 44, 0.09), 0 2px 6px rgba(0, 0, 0, 0.03);
       text-align: center;
       position: relative;
-      transition: var(--transition-smooth);
-      min-height: 180px;
+      transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Lead Crown Tag */
+    .lead-crown-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #92400E;
+      background: #FEF3C7;
+      border: 1px dashed #F59E0B;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-full);
+      margin-bottom: 1.1rem;
+    }
+
+    /* Scrapbook patterned tape for lead cards */
+    .team-lead-card::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      width: 70px;
+      height: 20px;
+      backdrop-filter: blur(2px);
+      box-shadow: 0 2px 5px rgba(45, 59, 44, 0.14);
+      z-index: 5;
+      pointer-events: none;
+      opacity: 0.95;
+      clip-path: polygon(
+        0% 0%, 100% 0%,
+        97% 20%, 100% 40%, 97% 60%, 100% 80%, 98% 100%,
+        0% 100%,
+        3% 80%, 0% 60%, 3% 40%, 0% 20%
+      );
+    }
+
+    .team-lead-card:nth-child(1)::before {
+      background: radial-gradient(#F59E0B 20%, transparent 20%) 0 0/8px 8px, #FEF3C7;
+      transform: translateX(-50%) rotate(-2.5deg);
+    }
+    .team-lead-card:nth-child(2)::before {
+      background: repeating-linear-gradient(45deg, #FECDD3 0 6px, #FFF1F2 6px 12px);
+      transform: translateX(-50%) rotate(2.5deg);
+    }
+    .team-lead-card:nth-child(3)::before {
+      background: repeating-linear-gradient(-45deg, #D1FAE5 0 5px, #ECFDF5 5px 10px);
+      transform: translateX(-50%) rotate(-2deg);
+    }
+    .team-lead-card:nth-child(4)::before {
+      background: repeating-linear-gradient(60deg, #FED7AA 0 6px, #FFF7ED 6px 12px);
+      transform: translateX(-50%) rotate(2deg);
+    }
+
+    .team-lead-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 22px 40px -8px rgba(45, 59, 44, 0.2), 0 0 0 2.5px var(--accent-dusty-rose);
+      border-color: transparent;
+    }
+
+    .lead-photo-frame {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      padding: 6px;
+      background: linear-gradient(135deg, #FFE4E6, #FEF3C7);
+      border: 3px dashed var(--accent-dusty-rose);
+      margin-bottom: 1.15rem;
+      overflow: hidden;
+      flex-shrink: 0;
+      box-shadow: 0 8px 20px rgba(45, 59, 44, 0.12);
+      transition: all 0.4s ease;
+    }
+
+    .team-lead-card:hover .lead-photo-frame {
+      transform: scale(1.05);
+      border-style: solid;
+      border-color: #F59E0B;
+      box-shadow: 0 10px 25px rgba(245, 158, 11, 0.35);
+    }
+
+    .lead-photo-frame img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 42%;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .team-lead-card:hover .lead-photo-frame img {
+      transform: scale(1.04);
+    }
+
+    .lead-name {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--accent-forest);
+      margin-bottom: 0.35rem;
+      line-height: 1.25;
+    }
+
+    .lead-dept {
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent-dusty-rose);
+      background: rgba(180, 119, 122, 0.12);
+      padding: 0.25rem 0.8rem;
+      border-radius: var(--radius-full);
+      margin-bottom: 0.75rem;
+    }
+
+    .lead-phone {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--accent-forest);
+      background: #FFFFFF;
+      padding: 0.38rem 0.95rem;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(180, 119, 122, 0.35);
+      box-shadow: 0 2px 6px rgba(45, 59, 44, 0.05);
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+
+    .lead-phone:hover {
+      background: var(--accent-forest);
+      color: #FFFFFF;
+      border-color: var(--accent-forest);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(45, 59, 44, 0.22);
+    }
+
+    /* --- "The Bazaar Crew" Divider Archway --- */
+    .team-divider {
+      text-align: center;
+      margin: 4.8rem 0 3.2rem;
+      position: relative;
+      z-index: 3;
+    }
+
+    .team-divider::before,
+    .team-divider::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: calc(50% - 170px);
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--accent-dusty-rose), transparent);
+    }
+
+    .team-divider::before { left: 0; }
+    .team-divider::after { right: 0; }
+
+    .team-divider-text {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: var(--font-heading);
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: var(--accent-forest);
+      background: linear-gradient(180deg, #FFFFFF 0%, #FFFDF9 100%);
+      padding: 0.7rem 2.2rem;
+      border-radius: var(--radius-full);
+      border: 2px solid rgba(180, 119, 122, 0.3);
+      box-shadow: 0 6px 18px rgba(45, 59, 44, 0.08);
+      position: relative;
+      letter-spacing: 0.03em;
+    }
+
+    .team-divider-sub {
+      display: block;
+      font-family: var(--font-hand);
+      font-size: 1.22rem;
+      font-weight: 700;
+      color: var(--accent-dusty-rose);
+      margin-top: 0.15rem;
+      letter-spacing: 0;
+    }
+
+    /* --- Member Grid (14 cards - centered layout) --- */
+    .team-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.65rem 1.4rem;
+      max-width: 1220px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 3;
+    }
+
+    /* The Bazaar Polaroid / Festival Pass Card */
+    .team-card {
+      flex: 0 0 calc(20% - 1.15rem);
+      max-width: 225px;
+      min-width: 195px;
+      background: #FFFFFF;
+      border-radius: 18px;
+      padding: 12px 12px 16px 12px;
+      border: 2px solid #EFE8DC;
+      box-shadow: 0 10px 25px -5px rgba(45, 59, 44, 0.08), 0 2px 6px rgba(0, 0, 0, 0.03);
+      text-align: center;
+      position: relative;
+      transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      cursor: default;
+    }
+
+    /* Playful organic tilt angles for festival flea market aesthetic */
+    .team-card:nth-child(5n+1) { transform: rotate(-1.2deg); }
+    .team-card:nth-child(5n+2) { transform: rotate(1.2deg); }
+    .team-card:nth-child(5n+3) { transform: rotate(-0.8deg); }
+    .team-card:nth-child(5n+4) { transform: rotate(1.4deg); }
+    .team-card:nth-child(5n+5) { transform: rotate(-1.4deg); }
+
+    /* Patterned Washi Tapes (Authentic stationery patterns with sawtooth ripped edges) */
+    .team-card::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      width: 66px;
+      height: 20px;
+      backdrop-filter: blur(2px);
+      box-shadow: 0 2px 5px rgba(45, 59, 44, 0.14);
+      z-index: 5;
+      pointer-events: none;
+      opacity: 0.95;
+      clip-path: polygon(
+        0% 0%, 100% 0%,
+        97% 20%, 100% 40%, 97% 60%, 100% 80%, 98% 100%,
+        0% 100%,
+        3% 80%, 0% 60%, 3% 40%, 0% 20%
+      );
+    }
+
+    /* Pattern 1: Festive Marigold Dots */
+    .team-card:nth-child(4n+1)::before {
+      background: radial-gradient(#F59E0B 20%, transparent 20%) 0 0/8px 8px, #FEF3C7;
+      transform: translateX(-50%) rotate(-3deg);
+    }
+    /* Pattern 2: Candy Rose Stripes */
+    .team-card:nth-child(4n+2)::before {
+      background: repeating-linear-gradient(45deg, #FECDD3 0 6px, #FFF1F2 6px 12px);
+      transform: translateX(-50%) rotate(3deg);
+    }
+    /* Pattern 3: Forest Sage Botanical */
+    .team-card:nth-child(4n+3)::before {
+      background: repeating-linear-gradient(-45deg, #D1FAE5 0 5px, #ECFDF5 5px 10px);
+      transform: translateX(-50%) rotate(-2deg);
+    }
+    /* Pattern 4: Golden Honeycomb */
+    .team-card:nth-child(4n+4)::before {
+      background: repeating-linear-gradient(60deg, #FED7AA 0 6px, #FFF7ED 6px 12px);
+      transform: translateX(-50%) rotate(2.5deg);
     }
 
     .team-card:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-hover);
-      border-color: var(--accent-dusty-rose);
+      transform: translateY(-12px) rotate(0deg) scale(1.03);
+      box-shadow: 0 24px 42px -8px rgba(45, 59, 44, 0.2), 0 0 0 2.5px var(--accent-dusty-rose);
+      border-color: transparent;
+      z-index: 10;
+    }
+
+    /* Polaroid Photo Frame with Authentic Matte Border */
+    .member-photo-frame {
+      width: 100%;
+      height: 205px;
+      border-radius: 12px;
+      background: #F4EFE6;
+      overflow: hidden;
+      position: relative;
+      border: 3.5px solid #FFFFFF;
+      box-shadow: 0 4px 14px rgba(45, 59, 44, 0.08), inset 0 0 0 1px rgba(0, 0, 0, 0.06);
+    }
+
+    /* Rubber Ink Festival Pass Stamp in Photo Corner */
+    .member-photo-frame::before {
+      content: '★ CREW ★';
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      font-family: var(--font-body);
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      color: rgba(180, 119, 122, 0.9);
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(4px);
+      border: 1px dashed rgba(180, 119, 122, 0.65);
+      padding: 2px 7px;
+      border-radius: 4px;
+      transform: rotate(-4deg);
+      z-index: 4;
+      pointer-events: none;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+    }
+
+    .team-card:hover .member-photo-frame::before {
+      background: var(--accent-forest);
+      color: #FFFFFF;
+      border-color: var(--accent-forest);
+      border-style: solid;
+      transform: rotate(0deg) scale(1.05);
+    }
+
+    .member-photo-frame img {
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .team-card:hover .member-photo-frame img {
+      transform: scale(1.06);
+    }
+
+    /* Holographic Festival Rainbow Glint across photo on hover */
+    .member-photo-frame::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -130%;
+      width: 70%;
+      height: 100%;
+      background: linear-gradient(
+        105deg,
+        transparent 15%,
+        rgba(254, 240, 138, 0.4) 35%,
+        rgba(254, 205, 211, 0.4) 50%,
+        rgba(186, 230, 253, 0.4) 65%,
+        transparent 85%
+      );
+      transform: skewX(-22deg);
+      transition: left 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    .team-card:hover .member-photo-frame::after {
+      left: 180%;
+    }
+
+    /* Chic Festival Lanyard Name Badge */
+    .member-name {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      font-family: var(--font-heading);
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--accent-forest);
+      margin-top: 12px;
+      padding: 0.42rem 1.15rem;
+      background: linear-gradient(180deg, #FFFFFF 0%, #FFFDF9 100%);
+      border: 1.5px solid rgba(180, 119, 122, 0.35);
+      border-radius: var(--radius-full);
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      box-shadow: 0 2px 6px rgba(45, 59, 44, 0.05);
+      transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+      width: calc(100% - 6px);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .member-name::before {
+      content: '✦';
+      font-size: 0.75rem;
+      color: var(--accent-dusty-rose);
+      transition: transform 0.3s ease;
+    }
+
+    .team-card:hover .member-name {
+      background: var(--accent-forest);
+      color: #FFFFFF;
+      border-color: var(--accent-forest);
+      box-shadow: 0 4px 14px rgba(45, 59, 44, 0.25);
+      transform: translateY(-2px);
+    }
+
+    .team-card:hover .member-name::before {
+      color: #FBBF24;
+      transform: rotate(45deg) scale(1.2);
     }
 
     /* ==========================================================================
@@ -1604,8 +2099,14 @@
        RESPONSIVE DESIGN
        ========================================================================== */
     @media (max-width: 1200px) {
-      .team-grid {
+      .team-leads-grid {
         grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+      }
+      .team-card {
+        flex: 0 0 calc(25% - 1.25rem);
+        max-width: 235px;
+        min-width: 185px;
       }
     }
 
@@ -1623,8 +2124,14 @@
       .about-content-box { order: 1; }
       .contact-grid { grid-template-columns: 1fr; }
       .footer-top { grid-template-columns: 1fr 1fr; }
-      .team-grid {
+      .team-leads-grid {
         grid-template-columns: repeat(4, 1fr);
+        gap: 1.25rem;
+      }
+      .team-card {
+        flex: 0 0 calc(25% - 1.15rem);
+        max-width: 220px;
+        min-width: 175px;
       }
     }
 
@@ -1637,14 +2144,28 @@
       .category-card { flex: 0 0 290px; }
       .footer-top { grid-template-columns: 1fr; }
       .contact-card-main, .about-content-box { padding: 2rem 1.5rem; }
+      .team-leads-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+      }
+      .lead-photo-frame {
+        width: 130px;
+        height: 130px;
+      }
+      .lead-name { font-size: 1.05rem; }
       .team-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1rem;
+        gap: 1.25rem 0.9rem;
       }
       .team-card {
-        min-height: 150px;
-        padding: 1.5rem 1rem;
+        flex: 0 0 calc(33.333% - 0.75rem);
+        max-width: 210px;
+        min-width: 155px;
+        padding: 10px 10px 14px 10px;
       }
+      .member-photo-frame {
+        height: 180px;
+      }
+      .member-name { font-size: 0.96rem; margin-top: 10px; padding: 0.35rem 0.75rem; }
       .card-center-poster {
         width: 260px;
         height: 350px;
@@ -1664,14 +2185,33 @@
       .hero-title-main { font-size: 2rem; }
       .hero-title-sub { font-size: 1.5rem; }
       .section-title { font-size: 1.8rem; }
-      .team-grid {
+      .team-leads-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 0.85rem;
+        gap: 1rem;
+      }
+      .team-lead-card {
+        padding: 1.5rem 1rem 1.3rem;
+      }
+      .lead-photo-frame {
+        width: 110px;
+        height: 110px;
+      }
+      .lead-name { font-size: 0.95rem; }
+      .lead-dept { font-size: 0.68rem; }
+      .lead-phone { font-size: 0.75rem; }
+      .team-grid {
+        gap: 1rem 0.65rem;
       }
       .team-card {
-        min-height: 130px;
-        padding: 1.2rem 0.8rem;
+        flex: 0 0 calc(50% - 0.55rem);
+        max-width: 190px;
+        min-width: 135px;
+        padding: 8px 8px 12px 8px;
       }
+      .member-photo-frame {
+        height: 160px;
+      }
+      .member-name { font-size: 0.88rem; margin-top: 8px; padding: 0.3rem 0.6rem; }
       .footer-bottom {
         flex-direction: column;
         text-align: center;
@@ -2040,32 +2580,217 @@
 
   <!-- OUR TEAM SECTION -->
   <section class="section-team" id="team">
+    <!-- Festive Bunting & Hanging Garland at Top of Section -->
+    <div class="bazaar-garland-wrap" aria-hidden="true">
+      <svg class="bazaar-garland-svg" viewBox="0 0 1200 48" preserveAspectRatio="none">
+        <path d="M0,12 Q150,28 300,14 Q450,30 600,14 Q750,30 900,14 Q1050,28 1200,12" fill="none" stroke="rgba(180, 119, 122, 0.45)" stroke-width="2" stroke-dasharray="4,4"/>
+        <polygon points="40,14 62,16 51,36" fill="#E11D48"/>
+        <polygon points="100,18 122,20 111,40" fill="#F59E0B"/>
+        <polygon points="160,22 182,23 171,43" fill="#2D3B2C"/>
+        <polygon points="220,24 242,23 231,43" fill="#F472B6"/>
+        <polygon points="280,18 302,16 291,37" fill="#FBBF24"/>
+        <polygon points="340,15 362,17 351,37" fill="#10B981"/>
+        <polygon points="400,20 422,22 411,42" fill="#E11D48"/>
+        <polygon points="460,24 482,24 471,44" fill="#F59E0B"/>
+        <polygon points="520,21 542,19 531,41" fill="#3B82F6"/>
+        <polygon points="580,15 602,15 591,36" fill="#F43F5E"/>
+        <polygon points="640,18 662,20 651,40" fill="#F59E0B"/>
+        <polygon points="700,23 722,24 711,44" fill="#2D3B2C"/>
+        <polygon points="760,24 782,23 771,43" fill="#EC4899"/>
+        <polygon points="820,19 842,17 831,38" fill="#FBBF24"/>
+        <polygon points="880,15 902,16 891,37" fill="#065F46"/>
+        <polygon points="940,19 962,21 951,41" fill="#E11D48"/>
+        <polygon points="1000,23 1022,24 1011,44" fill="#F59E0B"/>
+        <polygon points="1060,21 1082,19 1071,41" fill="#8B5CF6"/>
+        <polygon points="1120,16 1142,14 1131,36" fill="#F43F5E"/>
+        <circle cx="51" cy="15" r="3.5" fill="#FEF08A"/>
+        <circle cx="171" cy="22" r="3.5" fill="#FEF08A"/>
+        <circle cx="291" cy="17" r="3.5" fill="#FEF08A"/>
+        <circle cx="411" cy="21" r="3.5" fill="#FEF08A"/>
+        <circle cx="531" cy="20" r="3.5" fill="#FEF08A"/>
+        <circle cx="651" cy="19" r="3.5" fill="#FEF08A"/>
+        <circle cx="771" cy="23" r="3.5" fill="#FEF08A"/>
+        <circle cx="891" cy="16" r="3.5" fill="#FEF08A"/>
+        <circle cx="1011" cy="23" r="3.5" fill="#FEF08A"/>
+        <circle cx="1131" cy="15" r="3.5" fill="#FEF08A"/>
+      </svg>
+    </div>
+
+    <!-- Ambient floating festive stamps -->
+    <div class="bazaar-floating-sticker bazaar-sticker-left" aria-hidden="true">
+      <span>🎪</span> SBPIM BAZAAR '26
+    </div>
+    <div class="bazaar-floating-sticker bazaar-sticker-right" aria-hidden="true">
+      <span>✨</span> 100% STUDENT POWERED 🛍️
+    </div>
+
     <div class="container">
       <div class="section-header">
         <span class="section-tag">✨ SBPIM Student Organizers</span>
-        <h2 class="section-title">THE BRAINS, THE CREATIVITY, THE CHAOS 💌</h2>
-        <p class="section-subtitle">Meet the passionate people bringing the bazaar to life. Dedicated student leads, stall creators and festival curators.</p>
+        <h2 class="section-title">THE BRAINS, THE CREATIVITY & THE FESTIVE CHAOS 💌</h2>
+        <p class="section-subtitle">Meet the passionate crew bringing Pune's sweetest shopping carnival to life. Dedicated student leads, stall creators, and festival curators.</p>
+        <div class="bazaar-meta-strip">
+          <span class="bazaar-chip">🎟️ 18 Event Curators</span>
+          <span class="bazaar-chip">🛍️ Pop-up Stalls Squad</span>
+          <span class="bazaar-chip">💗 Budget me blast ✨</span>
+        </div>
       </div>
 
+      <!-- TOP 4 LEAD MEMBERS -->
+      <div class="team-leads-grid">
+        <!-- Lead 1: Shreyas Ghadage -->
+        <div class="team-lead-card">
+          <span class="lead-crown-tag">👑 BAZAAR LEAD</span>
+          <div class="lead-photo-frame">
+            <img src="images/shreyas.jpg" alt="Shreyas Ghadage">
+          </div>
+          <div class="lead-name">Shreyas Ghadage</div>
+          <div class="lead-dept">💰 Finance Pillar</div>
+          <a href="tel:7517256992" class="lead-phone">📞 7517256992</a>
+        </div>
+
+        <!-- Lead 2: Jaydeep Khedekar -->
+        <div class="team-lead-card">
+          <span class="lead-crown-tag">👑 BAZAAR LEAD</span>
+          <div class="lead-photo-frame">
+            <img src="images/jaydeep.jpg" alt="Jaydeep Khedekar">
+          </div>
+          <div class="lead-name">Jaydeep Khedekar</div>
+          <div class="lead-dept">📊 Business Analytics</div>
+          <a href="tel:9067804569" class="lead-phone">📞 9067804569</a>
+        </div>
+
+        <!-- Lead 3: Tanashree Madavi -->
+        <div class="team-lead-card">
+          <span class="lead-crown-tag">👑 BAZAAR LEAD</span>
+          <div class="lead-photo-frame">
+            <img src="images/tanashree.jpg" alt="Tanashree Madavi" style="object-position: center top;">
+          </div>
+          <div class="lead-name">Tanashree Madavi</div>
+          <div class="lead-dept">💰 Finance Pillar</div>
+          <a href="tel:8888421775" class="lead-phone">📞 8888421775</a>
+        </div>
+
+        <!-- Lead 4: Shivkant Sonatakke -->
+        <div class="team-lead-card">
+          <span class="lead-crown-tag">👑 BAZAAR LEAD</span>
+          <div class="lead-photo-frame">
+            <img src="images/shivkant.jpg" alt="Shivkant Sonatakke" style="object-position: center 15%;">
+          </div>
+          <div class="lead-name">Shivkant Sonatakke</div>
+          <div class="lead-dept">📣 Marketing & Vibes</div>
+          <a href="tel:8329357108" class="lead-phone">📞 8329357108</a>
+        </div>
+      </div>
+
+      <!-- DIVIDER: Our Team -->
+      <div class="team-divider">
+        <span class="team-divider-text">
+          🎪 THE BAZAAR CREW ✨
+          <span class="team-divider-sub">the 14 creators, stall leads & festival magicians</span>
+        </span>
+      </div>
+
+      <!-- 14 MEMBER CARDS -->
       <div class="team-grid">
-        <!-- 17 empty team cards -->
-        <div class="team-card"></div>
-        <div class="team-card"></div>
-        <div class="team-card"></div>
-        <div class="team-card"></div>
-        <div class="team-card"></div>
-        <div class="team-card"></div>
-        <div class="team-card"></div>
-        <div class="team-card"></div>
-        <div class="team-card"></div>
-        <div class="team-card"></div>
-        <div class="team-card"></div>
-        <div class="team-card"></div>
-        <div class="team-card"></div>
-        <div class="team-card"></div>
-        <div class="team-card"></div>
-        <div class="team-card"></div>
-        <div class="team-card"></div>
+        <!-- Member 1: Kamble Kiran -->
+        <div class="team-card">
+          <div class="member-photo-frame">
+            <img src="images/kamble-kiran.jpg" alt="Kamble Kiran" style="object-position: center top;">
+          </div>
+          <div class="member-name">Kamble Kiran</div>
+        </div>
+        <!-- Member 2: Kale Samruddhi -->
+        <div class="team-card">
+          <div class="member-photo-frame">
+            <img src="images/kale-samruddhi.png" alt="Kale Samruddhi" style="object-position: center 10%;">
+          </div>
+          <div class="member-name">Kale Samruddhi</div>
+        </div>
+        <!-- Member 3: Jangid Kavita -->
+        <div class="team-card">
+          <div class="member-photo-frame">
+            <img src="images/jangid-kavita.jpg" alt="Jangid Kavita" style="object-position: center top;">
+          </div>
+          <div class="member-name">Jangid Kavita</div>
+        </div>
+        <!-- Member 4: Joshi Sampada -->
+        <div class="team-card">
+          <div class="member-photo-frame">
+            <img src="images/joshi-sampada.jpg" alt="Joshi Sampada" style="object-position: center top;">
+          </div>
+          <div class="member-name">Joshi Sampada</div>
+        </div>
+        <!-- Member 5: Kadam Shubhangi -->
+        <div class="team-card">
+          <div class="member-photo-frame">
+            <img src="images/kadam-shubhangi.jpg" alt="Kadam Shubhangi" style="object-position: center top;">
+          </div>
+          <div class="member-name">Kadam Shubhangi</div>
+        </div>
+        <!-- Member 6: Gawai Sajagata -->
+        <div class="team-card">
+          <div class="member-photo-frame">
+            <img src="images/gawai-sajagata.jpg" alt="Gawai Sajagata" style="object-position: center top;">
+          </div>
+          <div class="member-name">Gawai Sajagata</div>
+        </div>
+        <!-- Member 7: Gavali Ankita -->
+        <div class="team-card">
+          <div class="member-photo-frame">
+            <img src="images/gavali-ankita.jpg" alt="Gavali Ankita" style="object-position: center top;">
+          </div>
+          <div class="member-name">Gavali Ankita</div>
+        </div>
+        <!-- Member 8: Gurav Gauri -->
+        <div class="team-card">
+          <div class="member-photo-frame">
+            <img src="images/gurav-gauri.jpg" alt="Gurav Gauri" style="object-position: center top;">
+          </div>
+          <div class="member-name">Gurav Gauri</div>
+        </div>
+        <!-- Member 9: Hinge Damini -->
+        <div class="team-card">
+          <div class="member-photo-frame">
+            <img src="images/hinge-damini.jpg" alt="Hinge Damini" style="object-position: center top;">
+          </div>
+          <div class="member-name">Hinge Damini</div>
+        </div>
+        <!-- Member 10: Jagadale Sayali -->
+        <div class="team-card">
+          <div class="member-photo-frame">
+            <img src="images/jagadale-sayali.jpg" alt="Jagadale Sayali" style="object-position: center top;">
+          </div>
+          <div class="member-name">Jagadale Sayali</div>
+        </div>
+        <!-- Member 11: Kolhe Shital -->
+        <div class="team-card">
+          <div class="member-photo-frame">
+            <img src="images/kolhe-shital.png" alt="Kolhe Shital" style="object-position: center top;">
+          </div>
+          <div class="member-name">Kolhe Shital</div>
+        </div>
+        <!-- Member 12: Jadhav Pranav -->
+        <div class="team-card">
+          <div class="member-photo-frame">
+            <img src="images/jadhav-pranav.png" alt="Jadhav Pranav" style="object-position: center 8%;">
+          </div>
+          <div class="member-name">Jadhav Pranav</div>
+        </div>
+        <!-- Member 13: Kadam Divyarani -->
+        <div class="team-card">
+          <div class="member-photo-frame">
+            <img src="images/kadam-divyarani.png" alt="Kadam Divyarani" style="object-position: center top;">
+          </div>
+          <div class="member-name">Kadam Divyarani</div>
+        </div>
+        <!-- Member 14: Gujar Apurv -->
+        <div class="team-card">
+          <div class="member-photo-frame">
+            <img src="images/gujar-apurv.jpg" alt="Gujar Apurv" style="object-position: center top;">
+          </div>
+          <div class="member-name">Gujar Apurv</div>
+        </div>
       </div>
     </div>
   </section>
